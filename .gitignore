@@ -600,3 +600,4 @@ node_modules/prettier/standalone.d.ts
 node_modules/prettier/standalone.js
 node_modules/prettier/standalone.mjs
 node_modules/prettier/THIRD-PARTY-NOTICES.md
+src/output.css

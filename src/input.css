@@ -1,1 +1,6 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+
+@theme {
+  --color-mamo-gold: #d4af37;
+  --color-mamo-black: #0a0a0a;
+}
