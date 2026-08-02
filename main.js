@@ -6,6 +6,10 @@ let burgerIcon = document.querySelector("#burger-icon");
 let bars = document.querySelectorAll("#burger-icon span");
 let nav = document.querySelector("nav");
 let link = document.querySelectorAll("nav li a");
+let themeIcon = document.querySelector("#theme");
+let langIcon = document.querySelector("#lang");
+let hero = document.querySelector("#hero");
+let heroTitle = document.querySelector("#hero h1");
 
 function barsBehaviour() {
   bars.forEach((ele, index) => {
@@ -46,9 +50,7 @@ link.forEach((ele) => {
   };
 });
 
-
 // Dark Mode Icon
-let themeIcon = document.querySelector("#theme");
 
 themeIcon.addEventListener("click", () => {
   themeIcon.classList.toggle("fa-sun");
@@ -66,4 +68,15 @@ themeIcon.addEventListener("click", () => {
   bars[1].classList.toggle("bg-mamo-black");
   bars[2].classList.toggle("bg-white");
   bars[2].classList.toggle("bg-mamo-black");
+  // hero.classList.toggle("from-mamo-gold/15 bg-linear-to-b to-mamo-black");
+  // hero.classList.toggle("from-mamo-gold/15 bg-linear-to-b to-bg-white");
+  heroTitle.classList.toggle("text-black");
+});
+
+langIcon.addEventListener("click", () => {
+  if (langIcon.innerText === "EN") {
+    langIcon.innerText = "AR";
+  } else if ((langIcon.innerText = "AR")) {
+    langIcon.innerText = "EN";
+  }
 });

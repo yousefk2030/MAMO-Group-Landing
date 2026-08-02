@@ -9,7 +9,8 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="./src/all.min.css" />
   </head>
-  <body class="bg-mamo-black h-[500vh] text-white">
+  <body class="bg-mamo-black font-poppins h-[500vh] text-white">
+    <!-- Start Header -->
     <header
       class="border-mamo-gold bg-mamo-black sticky top-0 z-50 border-be-2 text-white"
     >
@@ -27,47 +28,52 @@
         </a>
 
         <nav
-          class="bg-mamo-black border-mamo-gold absolute top-full left-0 z-30 mx-auto flex max-h-0 w-full flex-col items-center justify-between gap-2.5 overflow-hidden rounded-b-2xl border-x-2 border-be-2 px-5 transition-all duration-600 lg:static lg:top-auto lg:left-auto lg:z-0 lg:m-0 lg:me-5 lg:h-full lg:max-h-full lg:w-auto lg:translate-none lg:flex-row lg:rounded-b-none lg:border-none lg:bg-transparent lg:p-0"
+          class="bg-mamo-black border-mamo-gold absolute top-full left-0 z-30 mx-auto flex max-h-0 w-full flex-col items-center justify-between gap-2.5 overflow-hidden rounded-b-2xl border-x-2 border-be-2 px-5 font-bold transition-all duration-600 lg:static lg:top-auto lg:left-auto lg:z-0 lg:m-0 lg:me-5 lg:h-full lg:max-h-full lg:w-auto lg:translate-none lg:flex-row lg:rounded-b-none lg:border-none lg:bg-transparent lg:p-0"
         >
           <ul
             class="mbe-2 h-full w-full uppercase md:text-xl lg:me-10 lg:mbe-0 lg:flex lg:items-center lg:justify-end lg:gap-6 xl:gap-10"
           >
             <li
-              class="hover:text-mamo-gold lg:hover:border-mamo-gold border-b py-3.5 transition-all hover:ps-3 md:py-3 lg:flex lg:h-full lg:items-center lg:border-b-4 lg:border-transparent lg:p-0 lg:hover:border-b-4 lg:hover:p-0"
+              class="hover:text-mamo-gold lg:hover:border-mamo-gold border-b py-3.5 transition-all duration-300 hover:ps-3 md:py-3 lg:flex lg:h-full lg:items-center lg:border-b-4 lg:border-transparent lg:p-0 lg:hover:border-b-4 lg:hover:p-0"
             >
               <a href="#" class="flex h-full items-center">Home</a>
             </li>
             <li
-              class="hover:text-mamo-gold lg:hover:border-mamo-gold border-b py-3.5 transition-all hover:ps-3 md:py-3 lg:flex lg:h-full lg:items-center lg:border-b-4 lg:border-transparent lg:p-0 lg:hover:border-b-4 lg:hover:p-0"
+              class="hover:text-mamo-gold lg:hover:border-mamo-gold border-b py-3.5 transition-all duration-300 hover:ps-3 md:py-3 lg:flex lg:h-full lg:items-center lg:border-b-4 lg:border-transparent lg:p-0 lg:hover:border-b-4 lg:hover:p-0"
             >
               <a href="#about" class="flex h-full items-center">About</a>
             </li>
             <li
-              class="hover:text-mamo-gold lg:hover:border-mamo-gold border-b py-3.5 transition-all hover:ps-3 md:py-3 lg:flex lg:h-full lg:items-center lg:border-b-4 lg:border-transparent lg:p-0 lg:hover:border-b-4 lg:hover:p-0"
+              class="hover:text-mamo-gold lg:hover:border-mamo-gold border-b py-3.5 transition-all duration-300 hover:ps-3 md:py-3 lg:flex lg:h-full lg:items-center lg:border-b-4 lg:border-transparent lg:p-0 lg:hover:border-b-4 lg:hover:p-0"
             >
               <a href="#subjects" class="flex h-full items-center">Subjects</a>
             </li>
             <li
-              class="hover:text-mamo-gold lg:hover:border-mamo-gold border-b py-3.5 transition-all hover:ps-3 md:py-3 lg:flex lg:h-full lg:items-center lg:border-b-4 lg:border-transparent lg:p-0 lg:hover:border-b-4 lg:hover:p-0"
+              class="hover:text-mamo-gold lg:hover:border-mamo-gold border-b py-3.5 transition-all duration-300 hover:ps-3 md:py-3 lg:flex lg:h-full lg:items-center lg:border-b-4 lg:border-transparent lg:p-0 lg:hover:border-b-4 lg:hover:p-0"
             >
               <a href="#pricing" class="flex h-full items-center">Pricing</a>
             </li>
             <li
-              class="hover:text-mamo-gold lg:hover:border-mamo-gold border-b py-3.5 transition-all hover:ps-3 md:py-3 lg:flex lg:h-full lg:items-center lg:border-b-4 lg:border-transparent lg:p-0 lg:hover:border-b-4 lg:hover:p-0"
+              class="hover:text-mamo-gold lg:hover:border-mamo-gold border-b py-3.5 transition-all duration-300 hover:ps-3 md:py-3 lg:flex lg:h-full lg:items-center lg:border-b-4 lg:border-transparent lg:p-0 lg:hover:border-b-4 lg:hover:p-0"
             >
               <a href="#reviews" class="flex h-full items-center">Reviews</a>
             </li>
             <li
-              class="hover:text-mamo-gold lg:hover:border-mamo-gold border-b py-3.5 transition-all hover:ps-3 md:py-3 lg:flex lg:h-full lg:items-center lg:border-b-4 lg:border-transparent lg:p-0 lg:hover:border-b-4 lg:hover:p-0"
+              class="hover:text-mamo-gold lg:hover:border-mamo-gold border-b py-3.5 transition-all duration-300 hover:ps-3 md:py-3 lg:flex lg:h-full lg:items-center lg:border-b-4 lg:border-transparent lg:p-0 lg:hover:border-b-4 lg:hover:p-0"
             >
               <a href="#faq" class="flex h-full items-center">FAQ</a>
             </li>
           </ul>
         </nav>
+        <button
+          class="text-mamo-gold cursor-pointer text-lg font-bold"
+          id="lang"
+        >
+          AR
+        </button>
         <button class="text-mamo-gold cursor-pointer text-xl">
           <i class="fa-solid fa-sun" id="theme"></i>
         </button>
-
         <button
           class="group relative flex cursor-pointer flex-col space-y-1.5 lg:hidden"
           id="burger-icon"
@@ -84,6 +90,60 @@
         </button>
       </div>
     </header>
+    <!-- End Header -->
+    <main>
+      <!-- Start Hero -->
+      <section
+        class="from-mamo-gold/15 bg-linear-to-b to-transparent"
+        id="hero"
+      >
+        <div
+          class="mx-auto grid max-w-93.75 items-center justify-items-center px-5 py-20 md:max-w-170 lg:max-w-250 lg:grid-cols-2 lg:gap-5 xl:max-w-375 xl:px-15"
+        >
+          <div
+            class="border-mamo-gold shadow-mamo-gold/80 mbe-8 h-50 w-50 rounded-full border-3 shadow-lg transition-all duration-300 hover:scale-105 md:h-55 md:w-55 lg:mbs-8 lg:h-100 lg:w-100"
+          >
+            <img
+              src="img/miss-mai-1.jpg"
+              alt="Miss Mai"
+              width="704"
+              height="1472"
+              class="h-full w-full rounded-full object-cover object-top"
+            />
+          </div>
+
+          <div class="grid justify-items-center text-center">
+            <p
+              class="text-mamo-gold bg-mamo-gold/10 mx-auto mbe-5 w-fit rounded-full px-4 py-1.5 text-[12px] font-bold hover:scale-105 lg:text-sm"
+            >
+              30+ Years of Excellence
+            </p>
+            <h1
+              class="mbe-5 text-center text-3xl leading-[1.4] font-bold md:max-w-92 md:text-[40px] lg:max-w-145 lg:text-[56px]"
+            >
+              Master Science with <span class="text-mamo-gold">MAMO</span> Group
+            </h1>
+            <p class="text-center leading-[1.6] text-gray-400 md:max-w-120">
+              Private tutoring for Primary, Preparatory, & Secondary students at
+              Narmer Language School
+            </p>
+            <div class="mbs-9 w-full font-bold md:flex md:w-100 md:gap-3">
+              <a
+                href="https://wa.me/201XXXXXXXXX?text=Hi, I'd like a free trial class"
+                class="bg-mamo-gold text-mamo-black hover:shadow-mamo-gold/40 mbe-4 block w-full rounded-full px-8 py-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg md:m-0 md:inline md:flex-1"
+                >Free Trial Class</a
+              >
+              <a
+                href="#about"
+                class="text-mamo-gold border-mamo-gold hover:shadow-mamo-gold/40 hover:bg-mamo-gold block w-full rounded-full border-2 bg-transparent px-8 py-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:text-black hover:shadow-lg md:inline md:flex-1"
+                >Learn More</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Hero -->
+    </main>
 
     <script src="main.js"></script>
   </body>
