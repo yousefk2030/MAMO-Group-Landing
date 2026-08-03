@@ -1,5 +1,3 @@
-// Burger Icon
-let body = document.body;
 let header = document.querySelector("header");
 let logo = document.querySelector("#logo");
 let burgerIcon = document.querySelector("#burger-icon");
@@ -10,7 +8,10 @@ let themeIcon = document.querySelector("#theme");
 let langIcon = document.querySelector("#lang");
 let hero = document.querySelector("#hero");
 let heroTitle = document.querySelector("#hero h1");
+let playIcon = document.querySelector("#play-button .fa-play");
+let playButton = document.querySelector("#play-button");
 
+// Burger Icon
 function barsBehaviour() {
   bars.forEach((ele, index) => {
     // 1st & 3rd bar
@@ -41,7 +42,7 @@ burgerIcon.addEventListener("click", () => {
 
 link.forEach((ele) => {
   ele.onclick = () => {
-    if (header.clientWidth < 1024) {
+    if (!window.matchMedia("(min-width: 1024px)").matches) {
       nav.classList.toggle("max-h-0");
       nav.classList.toggle("pbe-5");
       nav.classList.toggle("max-h-85");
@@ -51,7 +52,6 @@ link.forEach((ele) => {
 });
 
 // Dark Mode Icon
-
 themeIcon.addEventListener("click", () => {
   themeIcon.classList.toggle("fa-sun");
   themeIcon.classList.toggle("fa-moon");
@@ -73,10 +73,15 @@ themeIcon.addEventListener("click", () => {
   heroTitle.classList.toggle("text-black");
 });
 
+// Language button
 langIcon.addEventListener("click", () => {
-  if (langIcon.innerText === "EN") {
-    langIcon.innerText = "AR";
-  } else if ((langIcon.innerText = "AR")) {
-    langIcon.innerText = "EN";
-  }
+  langIcon.innerText === "EN"
+    ? (langIcon.innerText = "AR")
+    : (langIcon.innerText = "EN");
+});
+
+// Video buton
+playButton.addEventListener("click", () => {
+  playIcon.classList.toggle("fa-play");
+  playIcon.classList.toggle("fa-pause");
 });
