@@ -10,6 +10,7 @@ let hero = document.querySelector("#hero");
 let heroTitle = document.querySelector("#hero h1");
 let playIcon = document.querySelector("#play-button .fa-play");
 let playButton = document.querySelector("#play-button");
+let testimonialTabs = document.querySelectorAll("#testimonial-tabs button");
 
 // Burger Icon
 function barsBehaviour() {
@@ -84,4 +85,14 @@ langIcon.addEventListener("click", () => {
 playButton.addEventListener("click", () => {
   playIcon.classList.toggle("fa-play");
   playIcon.classList.toggle("fa-pause");
+});
+
+// Testimonial tabs
+testimonialTabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    testimonialTabs.forEach((t) => {
+      t.classList.remove("testimonial-active");
+    });
+    tab.classList.add("testimonial-active");
+  });
 });

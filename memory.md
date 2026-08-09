@@ -2,14 +2,14 @@
 
 ## Current State
 Rebuild in progress (rebuild from scratch to train HTML/JS/Tailwind v4 skills before React).
-Done & committed on main: header (sticky, responsive nav + burger, lang + theme buttons), Hero, About (video placeholder + stats cards), Subjects (3 responsive cards).
+Done & committed on main: header (sticky, responsive nav + burger, lang + theme buttons), Hero, About (video placeholder + stats cards), Subjects (3 responsive cards), Pricing (free trial highlight card + 3 stage cards). Latest commit 89815ef.
 Deployment: GitHub Pages works; Netlify is blocked/unreachable from user's network (all `*.netlify.app` time out); alternatives that work: Cloudflare Pages (recommended), Vercel, surge.sh. `src/output.css` is generated but deliberately **tracked** in git (fix commit cc0ca64) so static hosts serve compiled styles.
 
 ## Client Requirements (client: Miss Mai — science teacher)
 - **Teacher**: Science for Primary/Preparatory + Biology for Secondary, at Narmer Language School
 - 30+ years experience, studied coaching and uses it; teaches on Zoom
 - **Name**: MAMO Group — has a logo (in navbar); has FB page (ads) + Instagram page
-- **Sections**: navbar+burger · Hero · About (video + text + stats, built) · Subjects (built) · **Pricing** · Testimonials (students AND parents) · CTA · FAQ · Footer
+- **Sections**: navbar+burger · Hero · About (built) · Subjects (built) · Pricing (built) · **Testimonials** (students AND parents) · CTA · FAQ · Footer
 - **Funnel**: WhatsApp → teacher adds student to group with details → 1-2 free trials → continue (pay) or leave
 - **Payment**: Vodafone Cash / InstaPay, every 4 sessions, no installments
 - **Groups**: 20-25 per stage; weekly homework corrected; monthly exams
@@ -19,10 +19,11 @@ Deployment: GitHub Pages works; Netlify is blocked/unreachable from user's netwo
 - **Release plan**: first release English only; light mode + Arabic later
 
 ## Next Step (exact starting point)
-0. COMPLETE 4/9 sections done: header, hero, about, subjects — all committed.
-1. Build PRICING section next (free trial + 3 stages; actual price quoted via WhatsApp only — confirmed decision)
-2. Then: testimonials, CTA, FAQ, footer
-3. Later: light mode + Arabic version + final refactor pass (container pattern → @utility, typographic tokens)
+0. COMPLETE 5/9 sections done: header, hero, about, subjects, pricing — all committed.
+1. Build TESTIMONIALS next (students AND parents — dual carousel, per client requirement)
+2. Then: CTA, FAQ, footer
+3. Verify FULL page on live deploy + show Ms. Mai the whole site (finalize all content)
+4. Later: light mode + Arabic version + final refactor pass (container pattern → @utility, typographic tokens)
 
 ## Project Structure (target)
 ```
@@ -53,11 +54,14 @@ MAMO-Group-Landing/
 
 ## Decisions Log
 - Coaching method: AI asks questions, user writes code — **but** user requested design specs (measurements/colors/JS behavior), not code
-- Badge style standardized across sections: `text-mamo-gold bg-mamo-gold/10 border-mamo-gold border-2 rounded-full`
-- User commits himself after AI confirms; commit titles: lowercase `feat:`/`fix:` + space
+- Badge style standardized across sections: `text-mamo-gold bg-mamo-gold/10 border-mamo-gold border-2 rounded-full` — unified to `max-w-fit` (not `w-fit`), `text-2xl` fixed (no lg bump)
+- **Content is MOCK until Ms. Mai sees the full site** — prices (EGP numbers on pricing cards), grades wording, WhatsApp message texts all get finalized with the client at handoff. User's stated priority = visual form only for now
+- Responsive cards spacing pattern: wrapper `space-y-3 md:space-y-0` + `md:gap-4` (no mbe on children)
+- User commits after AI confirms; commit titles: lowercase `feat:`/`fix:` + space
+- Icon language = Font Awesome only (fa-gift/fa-book/fa-book-open/fa-leaf in pricing)
 - Session memory: AGENTS.md → AI reads memory.md → knows state; updated every session
 
 ## PENDING (blocking none)
-- Grades wording in Subjects cards (`Grades 1–3`, `Grade 1`) — confirm real terminology with Ms. Mai before handoff
+- FIX ALL mock content with Ms. Mai after she sees the full site: grades wording in Subjects, EGP prices + stage texts in Pricing, WhatsApp prefilled messages, phone placeholder `201XXXXXXXXX`
 - `console.log(Window)` may still exist in main.js:14 — remove when seen
-- Slick hover arrows: `fa-arrow-right` in EN → flip to `fa-arrow-left` in Arabic
+- Flip `fa-arrow-right` → `fa-arrow-left` in Arabic version
