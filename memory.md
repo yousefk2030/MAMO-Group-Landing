@@ -2,14 +2,16 @@
 
 ## Current State
 Rebuild in progress (rebuild from scratch to train HTML/JS/Tailwind v4 skills before React).
-Done & committed on main: header (sticky, responsive nav + burger, lang + theme buttons), Hero, About (video placeholder + stats cards), Subjects (3 responsive cards), Pricing (free trial highlight card + 3 stage cards). Latest commit 89815ef.
-Deployment: GitHub Pages works; Netlify is blocked/unreachable from user's network (all `*.netlify.app` time out); alternatives that work: Cloudflare Pages (recommended), Vercel, surge.sh. `src/output.css` is generated but deliberately **tracked** in git (fix commit cc0ca64) so static hosts serve compiled styles.
+- **Committed on main (08c7f3d):** header (sticky, responsive nav + burger, lang + theme buttons), Hero, About (video placeholder + stats cards), Subjects (3 responsive cards), Pricing (free trial highlight card + 3 stage cards), Testimonials (student/parent tabs).
+- **Uncommitted working tree:** CTA section added to index.html + output.css regenerated; IDEA.md (1-line landing note) is untracked.
+- **Built so far: 7 of 9 sections** — header, hero, about, subjects, pricing, testimonials, CTA.
+- **Left to build: FAQ, footer.**
 
 ## Client Requirements (client: Miss Mai — science teacher)
 - **Teacher**: Science for Primary/Preparatory + Biology for Secondary, at Narmer Language School
 - 30+ years experience, studied coaching and uses it; teaches on Zoom
 - **Name**: MAMO Group — has a logo (in navbar); has FB page (ads) + Instagram page
-- **Sections**: navbar+burger · Hero · About (built) · Subjects (built) · Pricing (built) · **Testimonials** (students AND parents) · CTA · FAQ · Footer
+- **Sections**: navbar+burger · Hero · About · Subjects · Pricing · Testimonials (students AND parents) · CTA · **FAQ** · **Footer**
 - **Funnel**: WhatsApp → teacher adds student to group with details → 1-2 free trials → continue (pay) or leave
 - **Payment**: Vodafone Cash / InstaPay, every 4 sessions, no installments
 - **Groups**: 20-25 per stage; weekly homework corrected; monthly exams
@@ -18,12 +20,17 @@ Deployment: GitHub Pages works; Netlify is blocked/unreachable from user's netwo
 - **Design**: colors from the logo, modern look; mobile → tablet → desktop specs with all measurements/colors + JS behavior of every button; give NO code/hints (user builds everything)
 - **Release plan**: first release English only; light mode + Arabic later
 
+## Blind Spots to raise with user (coach role)
+- **Testimonials tabs are cosmetic only**: `main.js` toggles `testimonial-active` class but NEVER swaps the card content — clicking "Parents" still shows the 4 student cards. Client wants students AND parents. Need real content switch (or two card groups toggled by `hidden`).
+- The 4 testimonial cards are identical duplicates (same "Ahmed S. Grade 8" + same quote) — placeholder only.
+- `<body class="... h-[500vh] ...">` is a leftover test height — must be removed for a real page.
+- WhatsApp links all use placeholder `201XXXXXXXXX` + same prefilled text (fine until client handoff).
+
 ## Next Step (exact starting point)
-0. COMPLETE 5/9 sections done: header, hero, about, subjects, pricing — all committed.
-1. Build TESTIMONIALS next (students AND parents — dual carousel, per client requirement)
-2. Then: CTA, FAQ, footer
-3. Verify FULL page on live deploy + show Ms. Mai the whole site (finalize all content)
-4. Later: light mode + Arabic version + final refactor pass (container pattern → @utility, typographic tokens)
+1. Build **FAQ** (accordion — per header nav `#faq`).
+2. Build **footer** (logo, links, social, contact, copyright).
+3. Then: verify full page, fix the testimonials tab blind spot + remove `h-[500vh]`, commit CTA, and show Ms. Mai the whole site to finalize mock content.
+4. Later: light mode + Arabic version + final refactor pass (container pattern → @utility, typographic tokens).
 
 ## Project Structure (target)
 ```
@@ -32,6 +39,7 @@ MAMO-Group-Landing/
 ├── main.js
 ├── src/
 │   ├── input.css
+│   ├── all.min.css        (Font Awesome, local)
 │   └── output.css   (generated, TRACKED on purpose)
 ├── img/
 │   ├── logo.svg
@@ -39,6 +47,7 @@ MAMO-Group-Landing/
 ├── AGENTS.md
 ├── skill.md
 ├── memory.md
+├── IDEA.md
 ├── package.json
 └── README.md
 ```
@@ -47,21 +56,23 @@ MAMO-Group-Landing/
 - `--color-mamo-gold`: #d4af37
 - `--color-mamo-black`: #0a0a0a
 - `--color-mamo-white`: #f8f9fa
-- `--color-mamo-card`: #1a1a2e (card bg, added with subjects)
+- `--color-mamo-card`: #1a1a2e (card bg)
 - `--font-poppins` — self-hosted woff2 (400/600/700)
-- Container pattern: `max-w-93.75 px-5` / `md:max-w-191.25` (765px) / `lg:max-w-250` (1000) / `xl:max-w-375` (1500) / `xl:px-15` — repeated in every section (final refactor pending)
-- Type rule agreed: use Tailwind scale names where size exists (sm/xs/base/xl...); keep arbitrary px ONLY for non-scale sizes (28/32/40/56); icons are the legit arbitrary exception
+- Container pattern: `max-w-93.75 px-5` / `md:max-w-191.25` / `lg:max-w-250` / `xl:max-w-375` / `xl:px-15` — repeated in every section (final refactor pending)
+- Type rule agreed: use Tailwind scale names where size exists; keep arbitrary px ONLY for non-scale sizes (28/32/40/56); icons are the legit arbitrary exception
 
 ## Decisions Log
-- Coaching method: AI asks questions, user writes code — **but** user requested design specs (measurements/colors/JS behavior), not code
-- Badge style standardized across sections: `text-mamo-gold bg-mamo-gold/10 border-mamo-gold border-2 rounded-full` — unified to `max-w-fit` (not `w-fit`), `text-2xl` fixed (no lg bump)
-- **Content is MOCK until Ms. Mai sees the full site** — prices (EGP numbers on pricing cards), grades wording, WhatsApp message texts all get finalized with the client at handoff. User's stated priority = visual form only for now
-- Responsive cards spacing pattern: wrapper `space-y-3 md:space-y-0` + `md:gap-4` (no mbe on children)
+- Coaching method: AI asks questions, user writes code — but user requested design specs (measurements/colors/JS behavior), not code
+- Badge style standardized across sections: `text-mamo-gold bg-mamo-gold/10 border-mamo-gold border-2 rounded-full max-w-fit` + `text-2xl`
+- **Content is MOCK until Ms. Mai sees the full site** — prices, grades wording, WhatsApp texts, phone placeholder all finalized at client handoff. User's priority = visual form only for now.
+- Responsive cards spacing pattern: wrapper `space-y-3 md:space-y-0 md:gap-4` (no mbe on children)
 - User commits after AI confirms; commit titles: lowercase `feat:`/`fix:` + space
-- Icon language = Font Awesome only (fa-gift/fa-book/fa-book-open/fa-leaf in pricing)
+- Icon language = Font Awesome only
 - Session memory: AGENTS.md → AI reads memory.md → knows state; updated every session
 
 ## PENDING (blocking none)
-- FIX ALL mock content with Ms. Mai after she sees the full site: grades wording in Subjects, EGP prices + stage texts in Pricing, WhatsApp prefilled messages, phone placeholder `201XXXXXXXXX`
-- `console.log(Window)` may still exist in main.js:14 — remove when seen
+- Build FAQ + footer (next)
+- Fix testimonials tab content switch + remove `h-[500vh]` + commit uncommitted CTA
+- Finalize ALL mock content with Ms. Mai after she sees the full site
+- `console.log(Window)` may still exist in main.js:14 (verify/remove)
 - Flip `fa-arrow-right` → `fa-arrow-left` in Arabic version

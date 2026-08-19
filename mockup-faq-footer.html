@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAMO - FAQ & Footer Mockup (Mobile / Tablet / Desktop)</title>
+  <!-- Tailwind CSS CDN for self-contained preview -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'mamo-gold': '#d4af37',
+            'mamo-black': '#0a0a0a',
+            'mamo-white': '#f8f9fa',
+            'mamo-card': '#1a1a2e',
+          },
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    /* Smooth transitions for accordion */
+    .faq-answer {
+      transition: max-height 0.35s ease-out, opacity 0.3s ease, padding 0.3s ease;
+    }
+    .device-btn.active {
+      background-color: #d4af37;
+      color: #0a0a0a;
+      font-weight: 700;
+    }
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #111;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #333;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #d4af37;
+    }
+  </style>
+</head>
+<body class="bg-[#121216] text-white min-h-screen flex flex-col">
+
+  <!-- Control Header (Device Switcher & Notes) -->
+  <header class="sticky top-0 z-50 bg-[#181820]/95 backdrop-blur border-b border-white/10 px-4 py-3 shadow-xl">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-3 h-3 rounded-full bg-mamo-gold animate-pulse"></div>
+        <span class="font-bold text-sm text-white tracking-wide">MAMO Mockup</span>
+        <span class="text-xs bg-mamo-gold/20 text-mamo-gold border border-mamo-gold/40 px-2 py-0.5 rounded-full font-medium">FAQ & Footer</span>
+      </div>
+
+      <!-- Device Switcher Controls -->
+      <div class="flex items-center bg-[#0a0a0e] p-1 rounded-xl border border-white/10 text-xs sm:text-sm">
+        <button onclick="setDevice('mobile')" id="btn-mobile" class="device-btn flex items-center gap-2 px-3 py-1.5 rounded-lg text-gray-400 hover:text-white transition">
+          <i class="fa-solid fa-mobile-screen"></i>
+          <span>Mobile (375px)</span>
+        </button>
+        <button onclick="setDevice('tablet')" id="btn-tablet" class="device-btn flex items-center gap-2 px-3 py-1.5 rounded-lg text-gray-400 hover:text-white transition">
+          <i class="fa-solid fa-tablet-screen-button"></i>
+          <span>Tablet (768px)</span>
+        </button>
+        <button onclick="setDevice('desktop')" id="btn-desktop" class="device-btn active flex items-center gap-2 px-3 py-1.5 rounded-lg text-gray-400 hover:text-white transition">
+          <i class="fa-solid fa-desktop"></i>
+          <span>Desktop (Full)</span>
+        </button>
+      </div>
+
+      <div class="text-xs text-gray-400 hidden lg:block">
+        جرب الضغط على الأسئلة لاختبار الـ Accordion
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Viewport Container -->
+  <main class="flex-1 flex justify-center items-start p-2 sm:p-6 overflow-x-auto bg-[#0d0d11]">
+    <div id="viewport-frame" class="w-full transition-all duration-500 ease-in-out bg-mamo-black rounded-2xl shadow-2xl border border-white/10 overflow-hidden">
+      
+      <!-- ============================================== -->
+      <!-- START FAQ SECTION                             -->
+      <!-- ============================================== -->
+      <section id="faq" class="bg-mamo-black border-b border-white/5 relative overflow-hidden">
+        <!-- Background subtle glow -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-mamo-gold/5 blur-3xl rounded-full pointer-events-none"></div>
+
+        <div class="mx-auto max-w-[375px] md:max-w-[765px] lg:max-w-[1000px] xl:max-w-[1500px] px-5 py-16 lg:py-24 relative z-10">
+          
+          <!-- Section Badge & Header -->
+          <div class="text-center mb-10 lg:mb-14">
+            <span class="text-mamo-gold bg-mamo-gold/10 border-mamo-gold inline-block mb-3 rounded-full border-2 px-5 py-1.5 text-xs sm:text-sm font-bold uppercase tracking-wider">
+              Frequently Asked Questions
+            </span>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-3">
+              Got Questions? <span class="text-mamo-gold">We Have Answers</span>
+            </h2>
+            <p class="text-gray-400 text-xs sm:text-sm lg:text-base max-w-xl mx-auto">
+              Everything parents need to know about our Zoom classes, system, trials, and payment.
+            </p>
+          </div>
+
+          <!-- FAQ Accordion List -->
+          <div class="max-w-3xl mx-auto space-y-4">
+
+            <!-- Item 1 (Open by default in mockup) -->
+            <div class="faq-item bg-mamo-card border border-mamo-gold/30 rounded-2xl overflow-hidden transition-all duration-300 shadow-md">
+              <button class="faq-toggle w-full flex items-center justify-between gap-4 p-5 text-left cursor-pointer hover:text-mamo-gold transition group">
+                <span class="font-semibold text-sm sm:text-base lg:text-lg text-white group-hover:text-mamo-gold flex items-center gap-3">
+                  <i class="fa-solid fa-circle-question text-mamo-gold text-base"></i>
+                  How do the free trial classes work?
+                </span>
+                <span class="faq-icon-wrapper w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-mamo-gold shrink-0 transition-transform duration-300 rotate-180">
+                  <i class="fa-solid fa-chevron-down text-xs"></i>
+                </span>
+              </button>
+              <div class="faq-answer px-5 pb-5 pt-1 text-gray-300 text-xs sm:text-sm leading-relaxed border-t border-white/5">
+                We offer <strong class="text-mamo-gold">1 to 2 free trial classes</strong> on Zoom so you and your child can experience Ms. Mai’s interactive coaching methodology firsthand. No payment or credit card is required upfront. If you are satisfied, you can confirm registration.
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="faq-item bg-mamo-card border border-white/10 rounded-2xl overflow-hidden transition-all duration-300 hover:border-mamo-gold/30">
+              <button class="faq-toggle w-full flex items-center justify-between gap-4 p-5 text-left cursor-pointer hover:text-mamo-gold transition group">
+                <span class="font-semibold text-sm sm:text-base lg:text-lg text-white group-hover:text-mamo-gold flex items-center gap-3">
+                  <i class="fa-solid fa-video text-mamo-gold text-base"></i>
+                  What happens if my child misses a live class?
+                </span>
+                <span class="faq-icon-wrapper w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-mamo-gold shrink-0 transition-transform duration-300">
+                  <i class="fa-solid fa-chevron-down text-xs"></i>
+                </span>
+              </button>
+              <div class="faq-answer hidden px-5 pb-5 pt-1 text-gray-300 text-xs sm:text-sm leading-relaxed border-t border-white/5">
+                Every live session is recorded. If a student misses a scheduled class for an excused reason, they receive access to the full recording so they never fall behind. <em>(Note: Recordings are exclusive to enrolled students and not sold separately).</em>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="faq-item bg-mamo-card border border-white/10 rounded-2xl overflow-hidden transition-all duration-300 hover:border-mamo-gold/30">
+              <button class="faq-toggle w-full flex items-center justify-between gap-4 p-5 text-left cursor-pointer hover:text-mamo-gold transition group">
+                <span class="font-semibold text-sm sm:text-base lg:text-lg text-white group-hover:text-mamo-gold flex items-center gap-3">
+                  <i class="fa-solid fa-clipboard-check text-mamo-gold text-base"></i>
+                  How are homework and student progress monitored?
+                </span>
+                <span class="faq-icon-wrapper w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-mamo-gold shrink-0 transition-transform duration-300">
+                  <i class="fa-solid fa-chevron-down text-xs"></i>
+                </span>
+              </button>
+              <div class="faq-answer hidden px-5 pb-5 pt-1 text-gray-300 text-xs sm:text-sm leading-relaxed border-t border-white/5">
+                Structure is key: homework is assigned weekly and corrected with individual feedback. We also conduct monthly assessment exams to test comprehension and keep parents informed of their child's academic growth.
+              </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="faq-item bg-mamo-card border border-white/10 rounded-2xl overflow-hidden transition-all duration-300 hover:border-mamo-gold/30">
+              <button class="faq-toggle w-full flex items-center justify-between gap-4 p-5 text-left cursor-pointer hover:text-mamo-gold transition group">
+                <span class="font-semibold text-sm sm:text-base lg:text-lg text-white group-hover:text-mamo-gold flex items-center gap-3">
+                  <i class="fa-solid fa-wallet text-mamo-gold text-base"></i>
+                  What are the payment methods and schedule?
+                </span>
+                <span class="faq-icon-wrapper w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-mamo-gold shrink-0 transition-transform duration-300">
+                  <i class="fa-solid fa-chevron-down text-xs"></i>
+                </span>
+              </button>
+              <div class="faq-answer hidden px-5 pb-5 pt-1 text-gray-300 text-xs sm:text-sm leading-relaxed border-t border-white/5">
+                Payment is simple and flexible: accepted via <strong class="text-white">InstaPay</strong> or <strong class="text-white">Vodafone Cash</strong> every 4 sessions in advance. There are no annual lock-ins or installments.
+              </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="faq-item bg-mamo-card border border-white/10 rounded-2xl overflow-hidden transition-all duration-300 hover:border-mamo-gold/30">
+              <button class="faq-toggle w-full flex items-center justify-between gap-4 p-5 text-left cursor-pointer hover:text-mamo-gold transition group">
+                <span class="font-semibold text-sm sm:text-base lg:text-lg text-white group-hover:text-mamo-gold flex items-center gap-3">
+                  <i class="fa-solid fa-users text-mamo-gold text-base"></i>
+                  How many students are in each Zoom group?
+                </span>
+                <span class="faq-icon-wrapper w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-mamo-gold shrink-0 transition-transform duration-300">
+                  <i class="fa-solid fa-chevron-down text-xs"></i>
+                </span>
+              </button>
+              <div class="faq-answer hidden px-5 pb-5 pt-1 text-gray-300 text-xs sm:text-sm leading-relaxed border-t border-white/5">
+                Cohorts are capped at <strong>20 to 25 students</strong> per stage. This allows Ms. Mai to engage each student directly, answer individual questions, and apply coaching principles during every lesson.
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Help Card inside FAQ -->
+          <div class="mt-12 text-center bg-gradient-to-r from-mamo-card via-mamo-card to-[#232338] border border-white/10 rounded-2xl p-6 max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="text-center sm:text-left">
+              <h4 class="font-bold text-white text-base">Still have a specific question?</h4>
+              <p class="text-gray-400 text-xs sm:text-sm">Speak directly with Mrs. Mai on WhatsApp.</p>
+            </div>
+            <a href="https://wa.me/201XXXXXXXXX?text=Hi%20Ms%20Mai,%20I%20have%20a%20question%20about%20MAMO%20Group" 
+               class="bg-mamo-gold text-mamo-black hover:bg-white px-5 py-2.5 rounded-full font-bold text-xs sm:text-sm flex items-center gap-2 transition duration-300 shadow-md hover:shadow-mamo-gold/40 shrink-0">
+              <i class="fa-brands fa-whatsapp text-base"></i>
+              <span>Chat with Us</span>
+            </a>
+          </div>
+
+        </div>
+      </section>
+      <!-- END FAQ SECTION -->
+
+
+      <!-- ============================================== -->
+      <!-- START FOOTER SECTION                           -->
+      <!-- ============================================== -->
+      <footer id="footer" class="bg-[#07070a] border-t-2 border-mamo-gold/40 text-gray-400 text-xs sm:text-sm">
+        
+        <!-- Main Footer Columns -->
+        <div class="mx-auto max-w-[375px] md:max-w-[765px] lg:max-w-[1000px] xl:max-w-[1500px] px-5 py-12 lg:py-16">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+
+            <!-- Column 1: Brand & Teacher Bio -->
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <!-- Logo Mockup -->
+                <div class="flex items-center gap-2 font-bold text-xl text-white tracking-wider">
+                  <span class="text-mamo-gold text-2xl font-extrabold">MAMO</span>
+                  <span class="text-xs bg-mamo-gold/20 text-mamo-gold border border-mamo-gold px-2 py-0.5 rounded">GROUP</span>
+                </div>
+              </div>
+              <p class="text-gray-400 text-xs leading-relaxed">
+                Expert Science & Biology tutoring for Narmer Language School students by Mrs. Mai Elnaggar (30+ Years Experience & Certified Coach).
+              </p>
+              <div class="flex items-center gap-3 pt-2">
+                <a href="#" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-mamo-gold hover:bg-mamo-gold hover:text-mamo-black hover:scale-110 transition duration-200">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-mamo-gold hover:bg-mamo-gold hover:text-mamo-black hover:scale-110 transition duration-200">
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/201XXXXXXXXX" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-mamo-gold hover:bg-mamo-gold hover:text-mamo-black hover:scale-110 transition duration-200">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div>
+              <h4 class="text-white font-bold text-sm sm:text-base mb-4 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-mamo-gold"></span>
+                Quick Navigation
+              </h4>
+              <ul class="space-y-2.5 text-xs sm:text-sm">
+                <li><a href="#" class="hover:text-mamo-gold hover:ps-1 transition duration-200 block">Home</a></li>
+                <li><a href="#about" class="hover:text-mamo-gold hover:ps-1 transition duration-200 block">About Ms. Mai</a></li>
+                <li><a href="#subjects" class="hover:text-mamo-gold hover:ps-1 transition duration-200 block">Subjects & Grades</a></li>
+                <li><a href="#pricing" class="hover:text-mamo-gold hover:ps-1 transition duration-200 block">Pricing & Free Trial</a></li>
+                <li><a href="#reviews" class="hover:text-mamo-gold hover:ps-1 transition duration-200 block">Student & Parent Reviews</a></li>
+                <li><a href="#faq" class="hover:text-mamo-gold hover:ps-1 transition duration-200 block">FAQ</a></li>
+              </ul>
+            </div>
+
+            <!-- Column 3: Subjects & School -->
+            <div>
+              <h4 class="text-white font-bold text-sm sm:text-base mb-4 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-mamo-gold"></span>
+                Curriculum Focus
+              </h4>
+              <ul class="space-y-2.5 text-xs sm:text-sm">
+                <li class="flex items-start gap-2">
+                  <i class="fa-solid fa-microscope text-mamo-gold mt-1 text-xs"></i>
+                  <div>
+                    <span class="text-white font-medium block">Primary Science</span>
+                    <span class="text-gray-500 text-xs">Grades 4, 5, & 6</span>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fa-solid fa-vials text-mamo-gold mt-1 text-xs"></i>
+                  <div>
+                    <span class="text-white font-medium block">Preparatory Science</span>
+                    <span class="text-gray-500 text-xs">Grades 1, 2, & 3</span>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fa-solid fa-dna text-mamo-gold mt-1 text-xs"></i>
+                  <div>
+                    <span class="text-white font-medium block">Secondary Biology</span>
+                    <span class="text-gray-500 text-xs">Grade 1</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Column 4: Contact & Payment Info -->
+            <div>
+              <h4 class="text-white font-bold text-sm sm:text-base mb-4 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-mamo-gold"></span>
+                Direct Contact & Payment
+              </h4>
+              <div class="space-y-3 text-xs sm:text-sm">
+                <div class="flex items-center gap-2.5 text-gray-300">
+                  <i class="fa-solid fa-location-dot text-mamo-gold"></i>
+                  <span>Live on Zoom (Egypt / NLS)</span>
+                </div>
+                <div class="flex items-center gap-2.5 text-gray-300">
+                  <i class="fa-solid fa-phone text-mamo-gold"></i>
+                  <span>+20 1X XXXX XXXX</span>
+                </div>
+                
+                <div class="pt-3 border-t border-white/10">
+                  <span class="text-[11px] text-gray-400 block mb-2 font-medium">Accepted Payment Methods:</span>
+                  <div class="flex items-center gap-2">
+                    <span class="bg-[#1a1a2e] border border-white/10 px-2.5 py-1 rounded text-[11px] font-semibold text-white flex items-center gap-1.5">
+                      <i class="fa-solid fa-money-bill-wave text-mamo-gold"></i> InstaPay
+                    </span>
+                    <span class="bg-[#1a1a2e] border border-white/10 px-2.5 py-1 rounded text-[11px] font-semibold text-white flex items-center gap-1.5">
+                      <i class="fa-solid fa-mobile-screen-button text-red-400"></i> Vodafone Cash
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Bottom Copyright Sub-footer -->
+        <div class="border-t border-white/10 bg-[#050507] py-5">
+          <div class="mx-auto max-w-[375px] md:max-w-[765px] lg:max-w-[1000px] xl:max-w-[1500px] px-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-400 text-center sm:text-left">
+            <p>© 2026 MAMO Group — Mrs. Mai Elnaggar. All rights reserved.</p>
+            <p class="text-gray-400">
+              Designed & Built with <i class="fa-solid fa-heart text-mamo-gold"></i> for Narmer Language School Students.
+            </p>
+          </div>
+        </div>
+
+      </footer>
+      <!-- END FOOTER SECTION -->
+
+    </div>
+  </main>
+
+  <!-- Interactive Script for FAQ Accordion & Viewport Switching -->
+  <script>
+    // Device Viewport Switcher
+    const frame = document.getElementById('viewport-frame');
+    const buttons = {
+      mobile: document.getElementById('btn-mobile'),
+      tablet: document.getElementById('btn-tablet'),
+      desktop: document.getElementById('btn-desktop')
+    };
+
+    function setDevice(device) {
+      Object.values(buttons).forEach(btn => btn.classList.remove('active'));
+      buttons[device].classList.add('active');
+
+      if (device === 'mobile') {
+        frame.style.maxWidth = '375px';
+      } else if (device === 'tablet') {
+        frame.style.maxWidth = '768px';
+      } else {
+        frame.style.maxWidth = '100%';
+      }
+    }
+
+    // Accordion Logic
+    document.querySelectorAll('.faq-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.closest('.faq-item');
+        const answer = item.querySelector('.faq-answer');
+        const iconWrapper = button.querySelector('.faq-icon-wrapper');
+        const isOpen = !answer.classList.contains('hidden');
+
+        // Optional: close other open accordions
+        document.querySelectorAll('.faq-item').forEach(otherItem => {
+          if (otherItem !== item) {
+            const otherAnswer = otherItem.querySelector('.faq-answer');
+            const otherIcon = otherItem.querySelector('.faq-icon-wrapper');
+            otherAnswer.classList.add('hidden');
+            otherIcon.classList.remove('rotate-180');
+            otherItem.classList.remove('border-mamo-gold/40');
+            otherItem.classList.add('border-white/10');
+          }
+        });
+
+        // Toggle current item
+        if (isOpen) {
+          answer.classList.add('hidden');
+          iconWrapper.classList.remove('rotate-180');
+          item.classList.remove('border-mamo-gold/40');
+          item.classList.add('border-white/10');
+        } else {
+          answer.classList.remove('hidden');
+          iconWrapper.classList.add('rotate-180');
+          item.classList.add('border-mamo-gold/40');
+          item.classList.remove('border-white/10');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
