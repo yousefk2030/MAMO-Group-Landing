@@ -1,16 +1,20 @@
-let header = document.querySelector("header");
-let logo = document.querySelector("#logo");
-let burgerIcon = document.querySelector("#burger-icon");
-let bars = document.querySelectorAll("#burger-icon span");
-let nav = document.querySelector("nav");
-let link = document.querySelectorAll("nav li a");
-let themeIcon = document.querySelector("#theme");
-let langIcon = document.querySelector("#lang");
-let hero = document.querySelector("#hero");
-let heroTitle = document.querySelector("#hero h1");
-let playIcon = document.querySelector("#play-button .fa-play");
-let playButton = document.querySelector("#play-button");
-let testimonialTabs = document.querySelectorAll("#testimonial-tabs button");
+const header = document.querySelector("header");
+const logo = document.querySelector("#logo");
+const burgerIcon = document.querySelector("#burger-icon");
+const bars = document.querySelectorAll("#burger-icon span");
+const nav = document.querySelector("nav");
+const link = document.querySelectorAll("nav li a");
+const themeIcon = document.querySelector("#theme");
+const langIcon = document.querySelector("#lang");
+const hero = document.querySelector("#hero");
+const heroTitle = document.querySelector("#hero h1");
+const playIcon = document.querySelector("#play-button .fa-play");
+const playButton = document.querySelector("#play-button");
+const testimonialTabs = document.querySelectorAll("#testimonial-tabs button");
+const faq = document.querySelectorAll("#faq ul li");
+const faqPlus = document.querySelectorAll(".fa-plus")
+const faqtext = document.querySelectorAll("#faq ul li p")
+
 
 // Burger Icon
 function barsBehaviour() {
@@ -96,3 +100,13 @@ testimonialTabs.forEach((tab) => {
     tab.classList.add("testimonial-active");
   });
 });
+
+//faq
+
+faq.forEach((ele, index) => {
+  ele.addEventListener ("click", () => {
+    faqPlus[index].classList.toggle("rotate-45");
+    faqtext[index].classList.toggle("max-h-0");
+    faqtext[index].classList.toggle("faq-active");
+  })
+})

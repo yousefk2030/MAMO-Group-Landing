@@ -5,11 +5,16 @@
   --color-mamo-black: #0a0a0a;
   --color-mamo-white: #f8f9fa;
   --color-mamo-card: #1a1a2e;
+  --color-mamo-faq: #333;
   --font-poppins: "Poppins", sans-serif;
 }
 
 .testimonial-active {
   @apply border-mamo-gold text-mamo-gold;
+}
+
+.faq-active {
+  @apply mbs-3 max-h-100;
 }
 
 /* poppins-regular - latin */
