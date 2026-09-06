@@ -11,10 +11,9 @@ const heroTitle = document.querySelector("#hero h1");
 const playIcon = document.querySelector("#play-button .fa-play");
 const playButton = document.querySelector("#play-button");
 const testimonialTabs = document.querySelectorAll("#testimonial-tabs button");
-const faq = document.querySelectorAll("#faq ul li");
-const faqPlus = document.querySelectorAll(".fa-plus")
-const faqtext = document.querySelectorAll("#faq ul li p")
-
+const faq = document.querySelectorAll("#faq ul div");
+const faqPlus = document.querySelectorAll("#faq .fa-plus");
+const faqtext = document.querySelectorAll("#faq p");
 
 // Burger Icon
 function barsBehaviour() {
@@ -104,9 +103,24 @@ testimonialTabs.forEach((tab) => {
 //faq
 
 faq.forEach((ele, index) => {
-  ele.addEventListener ("click", () => {
-    faqPlus[index].classList.toggle("rotate-45");
-    faqtext[index].classList.toggle("max-h-0");
-    faqtext[index].classList.toggle("faq-active");
-  })
-})
+  ele.addEventListener("click", () => {
+    if(!faqtext[index].classList.contains("faq-active")) {
+      faqPlus.forEach((qu) => {
+        qu.classList.remove("rotate-45");
+      });
+      
+      faqtext.forEach((q) => {
+        q.classList.add("max-h-0");
+        q.classList.remove("faq-active");
+      });
+      faqPlus[index].classList.add("rotate-45");
+      faqtext[index].classList.remove("max-h-0");
+      faqtext[index].classList.add("faq-active");
+    } else {
+      faqPlus[index].classList.remove("rotate-45");
+      faqtext[index].classList.add("max-h-0");
+      faqtext[index].classList.remove("faq-active");
+
+    }
+  });
+});
