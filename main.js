@@ -104,11 +104,11 @@ testimonialTabs.forEach((tab) => {
 
 faq.forEach((ele, index) => {
   ele.addEventListener("click", () => {
-    if(!faqtext[index].classList.contains("faq-active")) {
+    if (!faqtext[index].classList.contains("faq-active")) {
       faqPlus.forEach((qu) => {
         qu.classList.remove("rotate-45");
       });
-      
+
       faqtext.forEach((q) => {
         q.classList.add("max-h-0");
         q.classList.remove("faq-active");
@@ -120,7 +120,6 @@ faq.forEach((ele, index) => {
       faqPlus[index].classList.remove("rotate-45");
       faqtext[index].classList.add("max-h-0");
       faqtext[index].classList.remove("faq-active");
-
     }
   });
 });

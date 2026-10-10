@@ -9,35 +9,168 @@
   --font-poppins: "Poppins", sans-serif;
 }
 
+.mamo-container {
+  @apply mx-auto max-w-93.75 px-5 py-16 md:max-w-191.25 lg:max-w-250 xl:max-w-375 xl:px-15 xl:py-24;
+}
+
+.section-title {
+  @apply text-mamo-gold border-mamo-gold bg-mamo-gold/10 mx-auto max-w-fit rounded-full border-2 px-4 py-1.5 text-2xl font-bold;
+}
+
+/* Header */
+.nav-link {
+  @apply hover:text-mamo-gold lg:hover:border-mamo-gold border-b py-3.5 transition-all duration-300 hover:ps-3 md:py-3 lg:flex lg:h-full lg:items-center lg:border-b-3 lg:border-transparent lg:p-0 lg:hover:p-0;
+}
+
+.nav-layout {
+  @apply flex h-full items-center;
+}
+
+/* About Section */
+.about-card {
+  @apply shadow-mamo-gold/50 hover:shadow-mamo-gold/80 rounded-xl bg-white p-4 shadow-lg transition-all duration-200 hover:-translate-y-0.5;
+}
+
+.about-icon {
+  @apply text-mamo-gold text-xl;
+}
+
+.about-number {
+  @apply text-mamo-black text-lg font-bold;
+}
+
+/* Subject Section */
+.subject-card {
+  @apply hover:shadow-mamo-gold/50 bg-mamo-card rounded-2xl p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg;
+}
+
+.subject-icon {
+  @apply text-mamo-gold mbe-3 text-[28px] xl:text-[32px];
+}
+
+.subject-title {
+  @apply mbe-1 flex h-14 items-center text-lg font-semibold xl:text-xl;
+}
+
+.subject-text {
+  @apply mbe-3 text-sm lg:text-base;
+}
+
+.subject-link {
+  @apply text-mamo-gold flex items-center gap-1.5 text-sm font-medium;
+}
+
+/* Pricing Section */
+.pricing-card {
+  @apply hover:shadow-mamo-gold/80 border-mamo-black/10 rounded-2xl border p-6 shadow-xl shadow-black/5 transition-all duration-300;
+}
+
+.pricing-title {
+  @apply mbe-1 text-lg font-semibold;
+}
+
+.pricing-detail {
+  @apply mbe-4 text-sm;
+}
+
+.pricing-cost {
+  @apply text-3xl font-extrabold;
+}
+
+.pricing-pros {
+  @apply mbe-5 space-y-1 text-sm text-gray-600;
+}
+
+.pricing-btn {
+  @apply border-mamo-gold text-mamo-gold hover:bg-mamo-gold hover:text-mamo-black block w-full rounded-full border-2 bg-transparent p-3 text-center text-sm font-semibold transition-all duration-300;
+}
+
+/* Testimonial Section */
 .testimonial-active {
   @apply border-mamo-gold text-mamo-gold;
 }
 
+.testimonial-card {
+  @apply bg-mamo-card hover:shadow-mamo-gold/50 rounded-2xl p-6 shadow-lg shadow-black/50 transition-all duration-300;
+}
+
+.testimonial-stars {
+  @apply text-mamo-gold mbe-3 flex gap-0.5 text-sm;
+}
+
+.testimonial-text {
+  @apply mbe-4 text-sm leading-[1.6] text-gray-400 italic;
+}
+
+.testimonial-person {
+  @apply grid text-sm font-semibold text-white;
+}
+
+.testimonial-detail {
+  @apply text-xs text-gray-600;
+}
+
+
+/* FAQs Section */
 .faq-active {
   @apply mbs-3 max-h-100;
 }
 
+.faq-question {
+  @apply border-mamo-faq border-b py-4 lg:py-5;
+}
+
+.faq-header {
+  @apply flex cursor-pointer items-center justify-between text-sm font-medium text-white md:text-base;
+}
+
+.faq-title {
+  @apply hover:text-mamo-gold transition-colors duration-300;
+}
+
+.faq-icon {
+  @apply text-mamo-gold transition-all duration-300 hover:text-white;
+}
+
+.faq-answer {
+  @apply overflow-hidden text-left text-sm leading-[1.6] text-gray-500 transition-all duration-300;
+}
+
+/* Footer */
+.footer-links {
+  @apply hover:text-mamo-gold text-gray-500 transition-colors duration-300;
+}
+
+/* Fonts */
 /* poppins-regular - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
-  src: url("../fonts/poppins-v24-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("../fonts/poppins-v24-latin-regular.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
+
 /* poppins-600 - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
-  src: url("../fonts/poppins-v24-latin-600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("../fonts/poppins-v24-latin-600.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
+
 /* poppins-700 - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
-  src: url("../fonts/poppins-v24-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("../fonts/poppins-v24-latin-700.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }

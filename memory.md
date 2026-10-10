@@ -2,15 +2,13 @@
 
 ## Current State
 Rebuild in progress (rebuild from scratch to train HTML/JS/Tailwind v4 skills before React).
-- **Committed on main (latest: d3a6341):** header (sticky, responsive nav + burger, lang + theme buttons), Hero, About (video placeholder + stats cards), Subjects (3 responsive cards), Pricing (free trial highlight card + 3 stage cards), Testimonials (student/parent tabs), CTA, **FAQ** (accordion with toggle logic).
-- **Uncommitted working tree:** Footer added to index.html + output.css regenerated (unstaged, needs commit).
-- **Built so far: 9 of 9 sections** — header, hero, about, subjects, pricing, testimonials, CTA, FAQ, footer. All sections complete.
-- **Branch:** `main` is ahead of `origin/main` (unpushed commits + unstaged footer changes).
+- **Committed on main (latest: d3c22b7):** header (sticky, responsive nav + burger, lang + theme buttons), Hero, About, Subjects, Pricing, Testimonials, CTA, FAQ, and Footer.
+- **Uncommitted working tree:** Tailwind class refactor across `index.html`/`src/input.css`; current `src/output.css` needs regeneration after the latest HTML fix. `main.js` changes are whitespace-only; `memory.md` contains review notes.
+- **Branch:** `main` and `origin/main` both point to `d3c22b7`; local worktree changes are uncommitted.
 
-## Commits (local, unpushed)
-1. `1c987e9 feat: add faq section` — 5-question accordion with placeholder content
-2. `d3a6341 fix: faq accordion toggle open close behavior` — if/else toggle logic + selector changed from `#faq ul li` to `#faq ul div`
-3. Footer changes are **unstaged** — need commit before push
+## Latest Commit
+- `d3c22b7 feat: add footer section with quick links contact and social` — committed on `main` and synced with `origin/main`.
+- Current Tailwind refactor and generated CSS update are not committed yet.
 
 ## FAQ Accordion — How It Works
 - **Selector:** `#faq ul div` (click on header `<div>` only, NOT `<li>` — so clicking answer `<p>` doesn't trigger toggle)
@@ -48,12 +46,11 @@ Rebuild in progress (rebuild from scratch to train HTML/JS/Tailwind v4 skills be
 - WhatsApp links all use placeholder `201XXXXXXXXX` + same prefilled text (fine until client handoff).
 
 ## Next Step (exact starting point)
-1. **Remove `h-[500vh]`** from `<body>` tag (index.html line 12).
-2. **Commit footer** — `feat: add footer section with quick links and contact` + output.css.
-3. **Push** all local commits + footer commit to origin/main.
-4. **Update memory.md** (this file) + commit + push.
-5. Then: fix testimonials tab content swap, show Ms. Mai the whole site to finalize mock content.
-6. Later: light mode + Arabic version + final refactor pass (container pattern → @utility, typographic tokens).
+1. Run `npm run build` to regenerate tracked `src/output.css` from the current source.
+2. Verify the footer's four-column layout at the `md` breakpoint and run `git diff --check`.
+3. Commit the Tailwind refactor as `refactor: extract shared Tailwind styles with @apply`, then push when ready.
+4. Fix testimonials tab content swap, then show Ms. Mai the full site to finalize mock content.
+5. Later: light mode + Arabic version + final refactor pass (container pattern → @utility, typographic tokens).
 
 ## Project Structure (current)
 ```
@@ -74,6 +71,7 @@ MAMO-Group-Landing/
 ├── memory.md
 ├── IDEA.md
 ├── PRODUCT.md
+├── AUDIT.md                (production-readiness audit, 2026-09-17)
 ├── package.json
 └── README.md
 ```
@@ -99,9 +97,26 @@ MAMO-Group-Landing/
 - **FAQ accordion**: selector changed from `#faq ul li` to `#faq ul div` — click on header div only, answer `<p>` click doesn't trigger toggle (good UX improvement)
 - **FAQ toggle**: if/else on `faq-active` class presence — close-all + open vs. close-only toggle
 
+## Production-Readiness Audit
+**→ See `AUDIT.md`** (created 2026-09-17): full blockers / bugs / SEO / a11y / perf / Tailwind review, each with line references and a `Status` column.
+When the user says **"رجّعني للـ audit"** (or "نكمل الـ audit"), open `AUDIT.md` and resume from the first open item in priority order (Phase 0 → 3), coaching (he writes the code).
+
+## Tailwind v4 Review (2026-10-08)
+- Audited `index.html` and `src/input.css` against Tailwind CSS v4.3 docs; Tailwind CLI 4.3.3 compile passed. No implementation files changed during review.
+- Initial review found the footer arbitrary grid class was split by whitespace; learner restored `md:grid-cols-4`, and a fresh build now contains the intended four-column utility.
+- `src/input.css` still has global class selectors composed with `@apply`; the right test is whether the exact bundle is reused and should stay visually consistent, not a rule to avoid `@apply`. The learner's direct About/Pricing utilities plus repeated testimonial sub-patterns are a reasonable balance for static HTML.
+- The current Tailwind CLI 4.3.3 build passes to scratch, and new testimonial classes compile. Custom class rules remain unlayered; utility overrides may lose if properties conflict, but no current conflict was confirmed.
+- Next step: regenerate tracked `src/output.css` from the current source, then visually verify the footer at the `md` breakpoint.
+
+## Commit Readiness Check
+- Latest HEAD at review: `d3c22b7`; current worktree has changes in `index.html`, `main.js`, `memory.md`, `src/input.css`, and `src/output.css`.
+- `git diff --check` passed and Tailwind CLI 4.3.3 compiled the current source to scratch successfully. The footer's valid `md:grid-cols-4` is present in the source and fresh CSS, but tracked `src/output.css` still differs from a fresh build and retains the old malformed selector; regenerate with `npm run build` before committing.
+- The learner restored the footer's valid `md:grid-cols-4`, expressing four equal columns. The remaining `main.js` diff is whitespace-only; no temporary `console.log` remains.
+- Suggested commit title after syncing generated CSS: `refactor: extract shared Tailwind styles with @apply`.
+
 ## PENDING (blocking none)
-- Remove `h-[500vh]` from body tag
-- Commit footer + push all local commits to origin/main
+- Regenerate `src/output.css` after the `md:grid-cols-4` HTML fix and verify the footer at the `md` breakpoint.
+- Commit and push the Tailwind refactor after generated CSS is synced.
 - Fix testimonials tab content switch (real content swap between student/parent cards)
 - Finalize ALL mock content with Ms. Mai after she sees the full site
 - Flip `fa-arrow-right` → `fa-arrow-left` in Arabic version
