@@ -1,11 +1,13 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-mamo-gold: #d4af37;
+  --color-mamo-gold-deep: #74570a;
   --color-mamo-black: #0a0a0a;
   --color-mamo-white: #f8f9fa;
-  --color-mamo-card: #1a1a2e;
-  --color-mamo-faq: #333;
+  --color-mamo-card: #22222f;
   --font-poppins: "Poppins", sans-serif;
 }
 
@@ -14,12 +16,12 @@
 }
 
 .section-title {
-  @apply text-mamo-gold border-mamo-gold bg-mamo-gold/10 mx-auto max-w-fit rounded-full border-2 px-4 py-1.5 text-2xl font-bold;
+  @apply text-mamo-gold-deep border-mamo-gold-deep dark:text-mamo-gold dark:border-mamo-gold bg-mamo-gold/10 mx-auto max-w-fit rounded-full border-2 px-4 py-1.5 text-2xl font-bold;
 }
 
 /* Header */
 .nav-link {
-  @apply hover:text-mamo-gold lg:hover:border-mamo-gold border-b py-3.5 transition-all duration-300 hover:ps-3 md:py-3 lg:flex lg:h-full lg:items-center lg:border-b-3 lg:border-transparent lg:p-0 lg:hover:p-0;
+  @apply hover:text-mamo-gold-deep dark:hover:text-mamo-gold lg:hover:border-mamo-gold border-b py-3.5 transition-all duration-300 hover:ps-3 md:py-3 lg:flex lg:h-full lg:items-center lg:border-b-3 lg:border-transparent lg:p-0 lg:hover:p-0 text-mamo-black dark:text-mamo-white;
 }
 
 .nav-layout {
@@ -28,24 +30,24 @@
 
 /* About Section */
 .about-card {
-  @apply shadow-mamo-gold/50 hover:shadow-mamo-gold/80 rounded-xl bg-white p-4 shadow-lg transition-all duration-200 hover:-translate-y-0.5;
+  @apply shadow-mamo-gold/20 hover:shadow-mamo-gold/80 rounded-xl bg-white p-4 shadow-lg transition-all duration-200 hover:-translate-y-0.5 border border-mamo-black/10 dark:bg-mamo-card dark:border-white/10;
 }
 
-.about-icon {
-  @apply text-mamo-gold text-xl;
+.about-card-icon {
+  @apply text-mamo-gold-deep dark:text-mamo-gold text-xl;
 }
 
-.about-number {
-  @apply text-mamo-black text-lg font-bold;
+.about-card-number {
+  @apply text-mamo-black dark:text-mamo-white text-lg font-bold;
 }
 
 /* Subject Section */
 .subject-card {
-  @apply hover:shadow-mamo-gold/50 bg-mamo-card rounded-2xl p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg;
+  @apply hover:shadow-mamo-gold/50 dark:bg-mamo-card dark:border-white/10 rounded-2xl p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg bg-white border border-mamo-black/10;
 }
 
 .subject-icon {
-  @apply text-mamo-gold mbe-3 text-[28px] xl:text-[32px];
+  @apply text-mamo-gold-deep dark:text-mamo-gold mbe-3 text-[28px] xl:text-[32px];
 }
 
 .subject-title {
@@ -53,16 +55,16 @@
 }
 
 .subject-text {
-  @apply mbe-3 text-sm lg:text-base;
+  @apply mbe-3 text-sm lg:text-base dark:text-gray-300 text-gray-600;
 }
 
 .subject-link {
-  @apply text-mamo-gold flex items-center gap-1.5 text-sm font-medium;
+  @apply dark:text-mamo-gold text-mamo-gold-deep flex items-center gap-1.5 text-sm font-medium;
 }
 
 /* Pricing Section */
 .pricing-card {
-  @apply hover:shadow-mamo-gold/80 border-mamo-black/10 rounded-2xl border p-6 shadow-xl shadow-black/5 transition-all duration-300;
+  @apply hover:shadow-mamo-gold/80 border-mamo-black/10 rounded-2xl border p-6 shadow-lg shadow-black/5 transition-all duration-300 dark:border-white/10;
 }
 
 .pricing-title {
@@ -78,38 +80,41 @@
 }
 
 .pricing-pros {
-  @apply mbe-5 space-y-1 text-sm text-gray-600;
+  @apply mbe-5 space-y-1 text-sm;
 }
 
 .pricing-btn {
-  @apply border-mamo-gold text-mamo-gold hover:bg-mamo-gold hover:text-mamo-black block w-full rounded-full border-2 bg-transparent p-3 text-center text-sm font-semibold transition-all duration-300;
+  @apply border-mamo-gold-deep text-mamo-gold-deep dark:border-mamo-gold dark:text-mamo-gold hover:bg-mamo-gold hover:text-mamo-black block w-full rounded-full border-2 bg-transparent p-3 text-center text-sm font-semibold transition-all duration-300;
 }
 
 /* Testimonial Section */
+.testimonial-tab {
+  @apply hover:text-mamo-gold-deep dark:hover:text-mamo-gold cursor-pointer border-be-2 border-transparent pbe-2 text-sm font-semibold text-gray-600 transition-all duration-200 dark:text-gray-300;
+}
+
 .testimonial-active {
-  @apply border-mamo-gold text-mamo-gold;
+  @apply border-mamo-gold-deep text-mamo-gold-deep dark:border-mamo-gold dark:text-mamo-gold;
 }
 
 .testimonial-card {
-  @apply bg-mamo-card hover:shadow-mamo-gold/50 rounded-2xl p-6 shadow-lg shadow-black/50 transition-all duration-300;
+  @apply bg-white hover:shadow-mamo-gold/80 rounded-2xl p-6 shadow-lg shadow-black/5 transition-all duration-300 dark:bg-mamo-card dark:border-white/10 border border-mamo-black/10;
 }
 
 .testimonial-stars {
-  @apply text-mamo-gold mbe-3 flex gap-0.5 text-sm;
+  @apply dark:text-mamo-gold text-mamo-gold-deep mbe-3 flex gap-0.5 text-sm;
 }
 
 .testimonial-text {
-  @apply mbe-4 text-sm leading-[1.6] text-gray-400 italic;
+  @apply mbe-4 text-sm leading-[1.6] dark:text-gray-400 text-gray-600 italic;
 }
 
 .testimonial-person {
-  @apply grid text-sm font-semibold text-white;
+  @apply grid text-sm font-semibold;
 }
 
 .testimonial-detail {
-  @apply text-xs text-gray-600;
+  @apply text-xs dark:text-gray-400 text-gray-600;
 }
-
 
 /* FAQs Section */
 .faq-active {
@@ -117,28 +122,32 @@
 }
 
 .faq-question {
-  @apply border-mamo-faq border-b py-4 lg:py-5;
+  @apply border-mamo-black/10 border-b dark:border-white/10 py-4 lg:py-5;
 }
 
 .faq-header {
-  @apply flex cursor-pointer items-center justify-between text-sm font-medium text-white md:text-base;
+  @apply flex cursor-pointer items-center justify-between text-sm font-medium md:text-base;
 }
 
 .faq-title {
-  @apply hover:text-mamo-gold transition-colors duration-300;
+  @apply hover:text-mamo-gold-deep dark:hover:text-mamo-gold transition-colors duration-300 text-mamo-black dark:text-mamo-white;
 }
 
 .faq-icon {
-  @apply text-mamo-gold transition-all duration-300 hover:text-white;
+  @apply text-mamo-gold-deep transition-all duration-300 hover:text-black dark:hover:text-white dark:text-mamo-gold;
 }
 
 .faq-answer {
-  @apply overflow-hidden text-left text-sm leading-[1.6] text-gray-500 transition-all duration-300;
+  @apply overflow-hidden text-left text-sm leading-[1.6] text-gray-500 transition-all duration-300 dark:text-gray-400;
 }
 
 /* Footer */
+.footer-title {
+  @apply mbe-3 text-sm font-semibold text-mamo-black dark:text-mamo-white;
+}
+
 .footer-links {
-  @apply hover:text-mamo-gold text-gray-500 transition-colors duration-300;
+  @apply hover:text-mamo-gold-deep dark:hover:text-mamo-gold text-gray-500 transition-colors duration-300 dark:text-gray-400;
 }
 
 /* Fonts */

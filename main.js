@@ -1,13 +1,10 @@
-const header = document.querySelector("header");
-const logo = document.querySelector("#logo");
 const burgerIcon = document.querySelector("#burger-icon");
 const bars = document.querySelectorAll("#burger-icon span");
 const nav = document.querySelector("nav");
 const link = document.querySelectorAll("nav li a");
-const themeIcon = document.querySelector("#theme");
+const themeBtn = document.querySelector("#theme");
+const themeIcon = document.querySelector("#theme i");
 const langIcon = document.querySelector("#lang");
-const hero = document.querySelector("#hero");
-const heroTitle = document.querySelector("#hero h1");
 const playIcon = document.querySelector("#play-button .fa-play");
 const playButton = document.querySelector("#play-button");
 const testimonialTabs = document.querySelectorAll("#testimonial-tabs button");
@@ -56,25 +53,19 @@ link.forEach((ele) => {
 });
 
 // Dark Mode Icon
-themeIcon.addEventListener("click", () => {
+if (localStorage.getItem("theme") === "light") {
   themeIcon.classList.toggle("fa-sun");
   themeIcon.classList.toggle("fa-moon");
-  header.classList.toggle("bg-mamo-black");
-  header.classList.toggle("bg-white");
-  nav.classList.toggle("bg-mamo-black");
-  nav.classList.toggle("bg-white");
-  nav.classList.toggle("text-black");
-  logo.classList.toggle("bg-mamo-black");
-  logo.classList.toggle("p-1");
-  bars[0].classList.toggle("bg-white");
-  bars[0].classList.toggle("bg-mamo-black");
-  bars[1].classList.toggle("bg-white");
-  bars[1].classList.toggle("bg-mamo-black");
-  bars[2].classList.toggle("bg-white");
-  bars[2].classList.toggle("bg-mamo-black");
-  // hero.classList.toggle("from-mamo-gold/15 bg-linear-to-b to-mamo-black");
-  // hero.classList.toggle("from-mamo-gold/15 bg-linear-to-b to-bg-white");
-  heroTitle.classList.toggle("text-black");
+}
+
+themeBtn.addEventListener("click", () => {
+  themeIcon.classList.toggle("fa-sun");
+  themeIcon.classList.toggle("fa-moon");
+  document.documentElement.classList.toggle("dark");
+
+  localStorage.getItem("theme") === "light"
+    ? localStorage.setItem("theme", "dark")
+    : localStorage.setItem("theme", "light");
 });
 
 // Language button
